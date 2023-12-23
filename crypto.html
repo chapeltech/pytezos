@@ -1,101 +1,95 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Cryptography &mdash; PyTezos  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
     <link rel="canonical" href="https://pytezos.org/crypto.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Building and parsing operations" href="operation_groups.html" />
     <link rel="prev" title="High-level interfaces" href="high_level.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="contents.html" class="icon icon-home"> PyTezos
           
-
-          
+          <a href="contents.html" class="icon icon-home">
+            PyTezos
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration_tests.html">Michelson integration tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytezos_cli.html">PyTezos CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="high_level.html">High-level interfaces</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cryptography</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pytezos.crypto.key">Keys and signatures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pytezos.crypto.encoding">Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pytezos.crypto.key">Keys and signatures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.key.Key"><code class="docutils literal notranslate"><span class="pre">Key</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.blinded_public_key_hash"><code class="docutils literal notranslate"><span class="pre">Key.blinded_public_key_hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_alias"><code class="docutils literal notranslate"><span class="pre">Key.from_alias()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_encoded_key"><code class="docutils literal notranslate"><span class="pre">Key.from_encoded_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_faucet"><code class="docutils literal notranslate"><span class="pre">Key.from_faucet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_mnemonic"><code class="docutils literal notranslate"><span class="pre">Key.from_mnemonic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_public_point"><code class="docutils literal notranslate"><span class="pre">Key.from_public_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.from_secret_exponent"><code class="docutils literal notranslate"><span class="pre">Key.from_secret_exponent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.generate"><code class="docutils literal notranslate"><span class="pre">Key.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.public_key"><code class="docutils literal notranslate"><span class="pre">Key.public_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.public_key_hash"><code class="docutils literal notranslate"><span class="pre">Key.public_key_hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.secret_key"><code class="docutils literal notranslate"><span class="pre">Key.secret_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.sign"><code class="docutils literal notranslate"><span class="pre">Key.sign</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytezos.crypto.key.Key.verify"><code class="docutils literal notranslate"><span class="pre">Key.verify</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.key.blake2b_32"><code class="docutils literal notranslate"><span class="pre">blake2b_32()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pytezos.crypto.encoding">Encoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.base58_decode"><code class="docutils literal notranslate"><span class="pre">base58_decode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.base58_encode"><code class="docutils literal notranslate"><span class="pre">base58_encode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_address"><code class="docutils literal notranslate"><span class="pre">is_address()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_bh"><code class="docutils literal notranslate"><span class="pre">is_bh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_chain_id"><code class="docutils literal notranslate"><span class="pre">is_chain_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_kt"><code class="docutils literal notranslate"><span class="pre">is_kt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_l2_pkh"><code class="docutils literal notranslate"><span class="pre">is_l2_pkh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_ogh"><code class="docutils literal notranslate"><span class="pre">is_ogh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_pkh"><code class="docutils literal notranslate"><span class="pre">is_pkh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_public_key"><code class="docutils literal notranslate"><span class="pre">is_public_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_sig"><code class="docutils literal notranslate"><span class="pre">is_sig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_sr"><code class="docutils literal notranslate"><span class="pre">is_sr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.is_txr_address"><code class="docutils literal notranslate"><span class="pre">is_txr_address()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.validate_l2_pkh"><code class="docutils literal notranslate"><span class="pre">validate_l2_pkh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.validate_pkh"><code class="docutils literal notranslate"><span class="pre">validate_pkh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytezos.crypto.encoding.validate_sig"><code class="docutils literal notranslate"><span class="pre">validate_sig()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="operation_groups.html">Building and parsing operations</a></li>
@@ -108,115 +102,68 @@
 <li class="toctree-l1"><a class="reference internal" href="michelson_kernel.html">Michelson IPython kernel</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="contents.html">PyTezos</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Cryptography</li>
-    
-    
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cryptography</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/crypto.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="cryptography">
-<h1>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-pytezos.crypto.key">
-<span id="keys-and-signatures"></span><h2>Keys and signatures<a class="headerlink" href="#module-pytezos.crypto.key" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="cryptography">
+<h1>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this heading"></a></h1>
+<section id="module-pytezos.crypto.key">
+<span id="keys-and-signatures"></span><h2>Keys and signatures<a class="headerlink" href="#module-pytezos.crypto.key" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt id="pytezos.crypto.key.Key">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pytezos.crypto.key.</span></code><code class="sig-name descname"><span class="pre">Key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public_point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret_exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytezos.crypto.key.</span></span><span class="sig-name descname"><span class="pre">Key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret_exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key" title="Permalink to this definition"></a></dt>
 <dd><p>Represents a public or secret key for Tezos. Ed25519, Secp256k1 and P256
 are supported.</p>
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.blinded_public_key_hash">
-<code class="sig-name descname"><span class="pre">blinded_public_key_hash</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.blinded_public_key_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.blinded_public_key_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates base58 encoded commitment out of activation code (required) and public key hash</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>blinded public key hash</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.blinded_public_key_hash">
+<span class="sig-name descname"><span class="pre">blinded_public_key_hash</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.blinded_public_key_hash&gt;</span> <span class="pre">Creates</span> <span class="pre">base58</span> <span class="pre">encoded</span> <span class="pre">commitment</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">activation</span> <span class="pre">code</span> <span class="pre">(required)</span> <span class="pre">and</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">hash</span>&#160; <span class="pre">:return:</span> <span class="pre">blinded</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">hash</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.blinded_public_key_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.blinded_public_key_hash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_alias">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_alias</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tezos_client_dir</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'~/.tezos-client'</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_alias"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_alias" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_alias">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tezos_client_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'~/.tezos-client'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_alias"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_alias" title="Permalink to this definition"></a></dt>
 <dd><p>Import secret key from tezos-client keychain.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>alias</strong> – key alias</p></li>
 <li><p><strong>passphrase</strong> – if key is encrypted (optional)</p></li>
 <li><p><strong>tezos_client_dir</strong> – path to the tezos client directory (default is <cite>~/.tezos-client</cite>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key">Key</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_encoded_key">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_encoded_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_encoded_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_encoded_key" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_encoded_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_encoded_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_encoded_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_encoded_key" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a key object from a base58 encoded key.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> – a public or secret key in base58 encoding</p></li>
 <li><p><strong>passphrase</strong> – the passphrase used if the key provided is an encrypted private key,
@@ -227,25 +174,25 @@ if not set value from from PYTEZOS_PASSPHRASE env variable will be used or promt
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_faucet">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_faucet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_faucet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_faucet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Import key from a faucet file: <a class="reference external" href="https://faucet.tzalpha.net/">https://faucet.tzalpha.net/</a></p>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_faucet">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_faucet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_faucet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_faucet" title="Permalink to this definition"></a></dt>
+<dd><p>Import key from a faucet file: <a class="reference external" href="https://teztnets.xyz/">https://teztnets.xyz/</a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>source</strong> – path to the json file</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key">Key</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_mnemonic">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_mnemonic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mnemonic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_mnemonic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_mnemonic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_mnemonic">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mnemonic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mnemonic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'english'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_mnemonic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_mnemonic" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a key object from a bip39 mnemonic.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mnemonic</strong> – a 15 word bip39 english mnemonic</p></li>
 <li><p><strong>passphrase</strong> – a mnemonic password or a fundraiser key</p></li>
@@ -253,20 +200,21 @@ if not set value from from PYTEZOS_PASSPHRASE env variable will be used or promt
 <li><p><strong>validate</strong> – whether to check mnemonic or not</p></li>
 <li><p><strong>curve</strong> – b’sp’ for secp251k1, b’p2’ for P256/secp256r1, b’ed’ for Ed25519 (default)</p></li>
 <li><p><strong>activation_code</strong> – secret for initializing account balance</p></li>
+<li><p><strong>language</strong> – The English label for the language of the mnemonic. This is needed for validation</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key">Key</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_public_point">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_public_point</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public_point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">b'ed'</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_public_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_public_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_public_point">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_public_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b'ed'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_public_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_public_point" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a key object from a public elliptic point.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>public_point</strong> – elliptic point in the compressed format (see <a class="reference external" href="https://tezos.stackexchange.com/a/623/309">https://tezos.stackexchange.com/a/623/309</a>)</p></li>
 <li><p><strong>curve</strong> – b’sp’ for secp251k1, b’p2’ for P256/secp256r1, b’ed’ for Ed25519 (default)</p></li>
@@ -276,11 +224,11 @@ if not set value from from PYTEZOS_PASSPHRASE env variable will be used or promt
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.from_secret_exponent">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_secret_exponent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secret_exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">pytezos.crypto.key.Key</span></a><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_secret_exponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_secret_exponent" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.from_secret_exponent">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_secret_exponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secret_exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key"><span class="pre">Key</span></a></span></span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.from_secret_exponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.from_secret_exponent" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a key object from a secret exponent.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>secret_exponent</strong> – secret exponent or seed</p></li>
 <li><p><strong>curve</strong> – b’sp’ for Secp251k1, b’p2’ for P256/Secp256r1, b’ed’ for Ed25519 (default)</p></li>
@@ -291,11 +239,11 @@ if not set value from from PYTEZOS_PASSPHRASE env variable will be used or promt
 </dd></dl>
 
 <dl class="py method">
-<dt id="pytezos.crypto.key.Key.generate">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">generate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'english'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.generate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.generate">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b'ed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'english'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.generate" title="Permalink to this definition"></a></dt>
 <dd><p>Generates new key.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>passphrase</strong> – optional password</p></li>
 <li><p><strong>curve</strong> – b’sp’ for secp251k1, b’p2’ for P256/secp256r1, b’ed’ for Ed25519 (default)</p></li>
@@ -304,252 +252,219 @@ if not set value from from PYTEZOS_PASSPHRASE env variable will be used or promt
 <li><p><strong>export</strong> – export as json file in the current folder, default is True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#pytezos.crypto.key.Key" title="pytezos.crypto.key.Key">Key</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.public_key">
-<code class="sig-name descname"><span class="pre">public_key</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.public_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.public_key" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates base58 encoded public key representation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the public key associated with the private key</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.public_key">
+<span class="sig-name descname"><span class="pre">public_key</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.public_key&gt;</span> <span class="pre">Creates</span> <span class="pre">base58</span> <span class="pre">encoded</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">representation.</span>&#160; <span class="pre">:returns:</span> <span class="pre">the</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">private</span> <span class="pre">key</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.public_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.public_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.public_key_hash">
-<code class="sig-name descname"><span class="pre">public_key_hash</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.public_key_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.public_key_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates base58 encoded public key hash for this key.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the public key hash for this key</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.public_key_hash">
+<span class="sig-name descname"><span class="pre">public_key_hash</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.public_key_hash&gt;</span> <span class="pre">Creates</span> <span class="pre">base58</span> <span class="pre">encoded</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">hash</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">key.</span>&#160; <span class="pre">:returns:</span> <span class="pre">the</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">hash</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">key</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.public_key_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.public_key_hash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.secret_key">
-<code class="sig-name descname"><span class="pre">secret_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passphrase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ed25519_seed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.secret_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.secret_key" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates base58 encoded private key representation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>passphrase</strong> – encryption phrase for the private key</p></li>
-<li><p><strong>ed25519_seed</strong> – encode seed rather than full key for ed25519 curve (True by default)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the secret key associated with this key, if available</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.secret_key">
+<span class="sig-name descname"><span class="pre">secret_key</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.secret_key&gt;</span> <span class="pre">Creates</span> <span class="pre">base58</span> <span class="pre">encoded</span> <span class="pre">private</span> <span class="pre">key</span> <span class="pre">representation.</span>&#160; <span class="pre">:param</span> <span class="pre">passphrase:</span> <span class="pre">encryption</span> <span class="pre">phrase</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">private</span> <span class="pre">key</span> <span class="pre">:param</span> <span class="pre">ed25519_seed:</span> <span class="pre">encode</span> <span class="pre">seed</span> <span class="pre">rather</span> <span class="pre">than</span> <span class="pre">full</span> <span class="pre">key</span> <span class="pre">for</span> <span class="pre">ed25519</span> <span class="pre">curve</span> <span class="pre">(True</span> <span class="pre">by</span> <span class="pre">default)</span> <span class="pre">:returns:</span> <span class="pre">the</span> <span class="pre">secret</span> <span class="pre">key</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">this</span> <span class="pre">key,</span> <span class="pre">if</span> <span class="pre">available</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.secret_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.secret_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.sign">
-<code class="sig-name descname"><span class="pre">sign</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.sign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.sign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sign a raw sequence of bytes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>message</strong> – sequence of bytes, raw format or hexadecimal notation</p></li>
-<li><p><strong>generic</strong> – do not specify elliptic curve if set to True</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>signature in base58 encoding</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.sign">
+<span class="sig-name descname"><span class="pre">sign</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.sign&gt;</span> <span class="pre">Sign</span> <span class="pre">a</span> <span class="pre">raw</span> <span class="pre">sequence</span> <span class="pre">of</span> <span class="pre">bytes.</span>&#160; <span class="pre">:param</span> <span class="pre">message:</span> <span class="pre">sequence</span> <span class="pre">of</span> <span class="pre">bytes,</span> <span class="pre">raw</span> <span class="pre">format</span> <span class="pre">or</span> <span class="pre">hexadecimal</span> <span class="pre">notation</span> <span class="pre">:param</span> <span class="pre">generic:</span> <span class="pre">do</span> <span class="pre">not</span> <span class="pre">specify</span> <span class="pre">elliptic</span> <span class="pre">curve</span> <span class="pre">if</span> <span class="pre">set</span> <span class="pre">to</span> <span class="pre">True</span> <span class="pre">:returns:</span> <span class="pre">signature</span> <span class="pre">in</span> <span class="pre">base58</span> <span class="pre">encoding</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.sign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.sign" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="pytezos.crypto.key.Key.verify">
-<code class="sig-name descname"><span class="pre">verify</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.verify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.verify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Verify signature, raise exception if it is not valid.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>message</strong> – sequance of bytes, raw format or hexadecimal notation</p></li>
-<li><p><strong>signature</strong> – a signature in base58 encoding</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p>ValueError if signature is not valid</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytezos.crypto.key.Key.verify">
+<span class="sig-name descname"><span class="pre">verify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;function</span> <span class="pre">Key.verify&gt;</span> <span class="pre">Verify</span> <span class="pre">signature,</span> <span class="pre">raise</span> <span class="pre">exception</span> <span class="pre">if</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">valid.</span>&#160; <span class="pre">:param</span> <span class="pre">message:</span> <span class="pre">sequance</span> <span class="pre">of</span> <span class="pre">bytes,</span> <span class="pre">raw</span> <span class="pre">format</span> <span class="pre">or</span> <span class="pre">hexadecimal</span> <span class="pre">notation</span> <span class="pre">:param</span> <span class="pre">signature:</span> <span class="pre">a</span> <span class="pre">signature</span> <span class="pre">in</span> <span class="pre">base58</span> <span class="pre">encoding</span> <span class="pre">:raises:</span> <span class="pre">ValueError</span> <span class="pre">if</span> <span class="pre">signature</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">valid</span> <span class="pre">:returns:</span> <span class="pre">True</span> <span class="pre">if</span> <span class="pre">signature</span> <span class="pre">is</span> <span class="pre">valid</span> </em><a class="reference internal" href="_modules/pytezos/crypto/key.html#Key.verify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.Key.verify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.key.blake2b_32">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.key.</span></code><code class="sig-name descname"><span class="pre">blake2b_32</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#blake2b_32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.blake2b_32" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.key.blake2b_32">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.key.</span></span><span class="sig-name descname"><span class="pre">blake2b_32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/key.html#blake2b_32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.key.blake2b_32" title="Permalink to this definition"></a></dt>
 <dd><p>Get a BLAKE2B hash of bytes</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-pytezos.crypto.encoding">
-<span id="encoding"></span><h2>Encoding<a class="headerlink" href="#module-pytezos.crypto.encoding" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-pytezos.crypto.encoding">
+<span id="encoding"></span><h2>Encoding<a class="headerlink" href="#module-pytezos.crypto.encoding" title="Permalink to this heading"></a></h2>
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.base58_decode">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">base58_decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#base58_decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.base58_decode" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.base58_decode">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">base58_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#base58_decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.base58_decode" title="Permalink to this definition"></a></dt>
 <dd><p>Decode data using Base58 with checksum + validate binary prefix against known kinds and cut in the end.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>v</strong> – Array of bytes (use string.encode())</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>bytes</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.base58_encode">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">base58_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#base58_encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.base58_encode" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.base58_encode">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">base58_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#base58_encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.base58_encode" title="Permalink to this definition"></a></dt>
 <dd><p>Encode data using Base58 with checksum and add an according binary prefix in the end.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>v</strong> – Array of bytes</p></li>
 <li><p><strong>prefix</strong> – Human-readable prefix (use b’’) e.g. b’tz’, b’KT’, etc</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>bytes (use string.decode())</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_address">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_address</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_address" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_address">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_address" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a tz/KT address</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_bh">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_bh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_bh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_bh" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_bh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_bh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_bh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_bh" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a block hash.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_chain_id">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_chain_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_chain_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_chain_id" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_chain_id">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_chain_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_chain_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_chain_id" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a chain id.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_kt">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_kt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_kt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_kt" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_kt">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_kt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_kt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_kt" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a KT address.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_ogh">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_ogh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_ogh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_ogh" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_l2_pkh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_l2_pkh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_l2_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_l2_pkh" title="Permalink to this definition"></a></dt>
+<dd><p>Check if value is an L2 public key hash.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_ogh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_ogh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_ogh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_ogh" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is an operation group hash.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_pkh">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_pkh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_pkh" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_pkh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_pkh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_pkh" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a public key hash.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_public_key">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_public_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_public_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_public_key" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_public_key">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_public_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_public_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_public_key" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a public key.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.is_sig">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">is_sig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_sig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_sig" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_sig">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_sig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_sig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_sig" title="Permalink to this definition"></a></dt>
 <dd><p>Check if value is a signature.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.validate_pkh">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">validate_pkh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#validate_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.validate_pkh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ensure parameter is a public key hash (starts with b’tz1’, b’tz2’, b’tz3’)</p>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_sr">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_sr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_sr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_sr" title="Permalink to this definition"></a></dt>
+<dd><p>Check if value is a smart rollup address.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.is_txr_address">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">is_txr_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#is_txr_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.is_txr_address" title="Permalink to this definition"></a></dt>
+<dd><p>Check if value is a txr1 address</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.validate_l2_pkh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">validate_l2_pkh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#validate_l2_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.validate_l2_pkh" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure parameter is a L2 public key hash (starts with b’txr1’)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>v</strong> – string or bytes</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – if parameter is not a public key hash</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pytezos.crypto.encoding.validate_sig">
-<code class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></code><code class="sig-name descname"><span class="pre">validate_sig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#validate_sig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.validate_sig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ensure parameter is a signature (starts with b’edsig’, b’spsig’, b’p2sig’, b’sig’)</p>
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.validate_pkh">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">validate_pkh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#validate_pkh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.validate_pkh" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure parameter is a public key hash (starts with b’tz1’, b’tz2’, b’tz3’)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>v</strong> – string or bytes</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if parameter is not a public key hash</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytezos.crypto.encoding.validate_sig">
+<span class="sig-prename descclassname"><span class="pre">pytezos.crypto.encoding.</span></span><span class="sig-name descname"><span class="pre">validate_sig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytezos/crypto/encoding.html#validate_sig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytezos.crypto.encoding.validate_sig" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure parameter is a signature (starts with b’edsig’, b’spsig’, b’p2sig’, b’sig’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> – string or bytes</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – if parameter is not a signature</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="operation_groups.html" class="btn btn-neutral float-right" title="Building and parsing operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="high_level.html" class="btn btn-neutral float-left" title="High-level interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="operation_groups.html" class="btn btn-neutral float-right" title="Building and parsing operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Baking Bad.
-
-    </p>
+    <p>&#169; Copyright 2020, Baking Bad.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
